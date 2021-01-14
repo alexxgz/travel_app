@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Log in</h1>
-
+<div>
+<h1 style="text-align: center; margin-right: 0vw;">Log in</h1>
+<img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
+</div>
 <!-- Add the login form -->
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
@@ -18,7 +20,7 @@
 		</tr>
 		{% endfor %}
 	</table>
-  <input type="submit" class="btn" value="login">
+  <input type="submit" class="btn" value="Login">
   <input type="hidden" name="next" value="{{ next }}">
 </form>
 

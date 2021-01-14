@@ -3,44 +3,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cat Collector</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    {% block scritps %}
-    {% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Travel Wayfarer</title>
+  <link rel="stylesheet" type="text/css" href="semantic/dist.semantic.min.css">
+  <link rel="stylesheet" href="/home/platothegeek/sei/Project-Wayfarer/main_app/static/css/style.css">
 </head>
 
 <body>
-    <header class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <ul>
-                    <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Wayfarer</a></li>
-                </ul>
-                 <ul class="right">
-						<li><a href="/about">About</a></li>
-						{% if user.is_authenticated %}
-						<li><a href="">View All My Cats</a></li>
-						<li><a href="">Log Out</a></li>
-						{% else %}
-						<li><a href="">Sign Up</a></li>
-						<li><a href="">Log In</a></li>
-						{% endif %}
-					</ul>
-            </div>
-        </nav>
-    </header>
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
-    {% block sidebar %}
+  <ul class="navBar" style="min-width: 100vw">
+    <li class="logo"><i class="sun icon"></i>Wayfarer</li>
+    <li style="float:right"><a href="">Create Account</a></li>
+    <li style="float:right"><a href="">Sign In</a></li>
+   </ul>
+    {% block content %}
     {% endblock %}
     <footer class="page-footer">
         <div class="right">All Rights Reserved, &copy; 2021 Wayfarer &nbsp;</div>

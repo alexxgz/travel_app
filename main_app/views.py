@@ -16,7 +16,10 @@ def about(request):
   return HttpResponse('<h1>About</h1>')
 
 def cities_index(request):
-  context = {'posts': posts}
+  context = {
+    'cities': cities, 
+    'posts': posts
+    }
   return render(request, 'cities/index.html', context)
 
 class City:

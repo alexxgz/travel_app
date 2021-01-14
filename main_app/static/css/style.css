@@ -1,6 +1,13 @@
 .sun {
     color: #ea5f2d;
 }
+.red-text {
+  color: red;
+  font-size: 25px;
+}
+.errorlist {
+  display: none;
+}
 .logo {
     font-size: 20px;
     color: white;

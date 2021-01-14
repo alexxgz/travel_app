@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
 
 <h1>Sign Up</h1>
 
@@ -7,7 +9,8 @@
 {% endif %}
 
 <form method="POST" action="{% url 'signup' %}">
-	{% csrf_token %} {{ form.as_p }}
+	{% csrf_token %} 
+	{{ form.as_p }}
 	<input type="submit" class="btn" value="signup" />
 </form>
 

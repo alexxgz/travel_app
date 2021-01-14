@@ -5,7 +5,19 @@
 
 <!-- Add the login form -->
 <form method="post" action="{% url 'login' %}">
-  {% csrf_token %} {{ form.as_p }}
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+	<table border="1">
+	{% for field in form.visible_fields %}
+		<tr>
+			<th>{{ field.label_tag }}</th>
+			<td>
+				{{field.errors}}
+				{{ field }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
   <input type="submit" class="btn" value="login">
   <input type="hidden" name="next" value="{{ next }}">
 </form>

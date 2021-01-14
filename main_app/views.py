@@ -28,4 +28,4 @@ def signup(request):
       error_message = 'Invalid sign up...'
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'home.html', context)
+  return render(request, 'registration/signup.html', context)

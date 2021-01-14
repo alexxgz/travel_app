@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Wayfarer</title>
-  <link 
-    rel="stylesheet" 
-    type="text/css"
-    href="static/css/style.css"
-    />
-</head>
-<body>
-    <ul class="navBar" style="min-width: 100.75vw; margin-left: -.75vw; margin-top: -.75vh;">
-        <li><i class="sun icon"></i></li>
-        <li class="logo">Wayfarer</li>
-        <li style="float:right"><a href="/accounts/signup">Create Account</a></li>
-        <li style="float:right"><a href="/resgistration/login.html">Sign In</a></li>
-    </ul>
-    <h1>Home page (:</h1>
-</body>
+{% extends 'base.html' %} 
+{% block content %}
+<h1>HOME!</h1>
+{% endblock %}

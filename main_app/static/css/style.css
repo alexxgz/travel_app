@@ -5,6 +5,9 @@
     color: red;
     font-size: 25px;
 }
+.errorlist {
+    display: none;
+}
 .logo {
   font-size: 20px;
   color: white;
@@ -16,41 +19,81 @@
 .logo:hover{
   background-color: #111;
 }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+.account a:hover {
+    background-color: #690C35;
+    color: #f0edeb;
+  }
+
+  /* The popup form - hidden by default */
 .form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-/* Full-width input fields */
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+ }
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    background-color: #ddd;
+    outline: none;
+  }
 .form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
 }
+
 .form-container .cancel {
     background-color: red;
 }
+  
 .form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+    opacity: 1;
+}
+
+  /* Base.html */
+body {
+    background-color: #f0edeb;
+}
+
+.page-footer {
+    position: relative;
+    bottom:0;
+    left:1%;
+    margin: 1%;
+}
+
+  /* Home.html */
+.wayfarerIs {
+    text-align: center;
+    padding: 2%;
 }
 .btn-login {
     background-color: whitesmoke;
@@ -71,25 +114,9 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: #333;
+      background-color: rgb(134,15,68);
 }
-    
-  li {
-      float: left;
-}
-    
-  li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-}
-    
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-      background-color: #111;
-}
+
 #skyline {
   margin: 0;
   margin-bottom: -5vh;

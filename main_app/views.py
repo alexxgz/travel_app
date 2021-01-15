@@ -43,7 +43,6 @@ cities = [
     City('New York City', 'New York')
 ]
 
-
 class Post:
   def __init__(self, title, city, body):
     self.title = title

@@ -16,6 +16,13 @@ def home(request):
 def about(request):
   return HttpResponse('<h1>About</h1>')
 
+def posts_show(request):
+  context = {
+    'cities': cities, 
+    'posts': posts
+    }
+  return render(request, 'posts/show.html', context)
+
 def cities_index(request):
   context = {
     'cities': cities, 
@@ -28,7 +35,11 @@ class City:
   def __init__(self, name, state):
     self.name = name 
     self.state = state
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> Alex-G
 
 cities = [
     City('San Francisco', 'California'),

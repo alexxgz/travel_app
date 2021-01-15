@@ -13,6 +13,18 @@ from .models import City, Post
 def home(request):
   return render(request, 'home.html')
 
+def profile(request):
+  current_user = request.user
+  print (current_user)
+  if request.user.is_authenticated:
+    context = { 
+      'user': current_user,
+      'posts': posts
+      }
+    return render(request, 'user/profile.html', context)
+  else:
+    return redirect('acounts/signup')
+
 def about(request):
   return HttpResponse('<h1>About</h1>')
 
@@ -37,8 +49,6 @@ class City:
   def __init__(self, name, state):
     self.name = name 
     self.state = state
-    
-
 
 cities = [
     City('San Francisco', 'California'),
@@ -74,7 +84,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('home')
+      return redirect('profile')
     else:
       error_message = 'Invalid sign up'
   form = UserCreationForm()

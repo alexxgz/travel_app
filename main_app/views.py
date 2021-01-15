@@ -49,11 +49,6 @@ class City:
   def __init__(self, name, state):
     self.name = name 
     self.state = state
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> origin/Lake-Starr
 
 cities = [
     City('San Francisco', 'California'),

@@ -5,12 +5,9 @@
     color: red;
     font-size: 25px;
 }
-<<<<<<< HEAD
 .errorlist {
     display: none;
 }
-=======
->>>>>>> origin/Lake-Starr
 .logo {
   font-size: 20px;
   color: white;
@@ -19,13 +16,8 @@
   padding: 14px 16px;
   text-decoration: none;
 }
-<<<<<<< HEAD
-.logo a:hover {
-  color: #f0edeb;
-=======
 .logo:hover{
   background-color: #111;
->>>>>>> origin/Lake-Starr
 }
   
 li {
@@ -171,8 +163,6 @@ input {
   border: none;
   border-bottom: solid 1px white;
 }
-<<<<<<< HEAD
-=======
 .navBar {
     font-size: 20px;
     list-style-type: none;
@@ -263,4 +253,3 @@ body {
     margin: 1%;
 }
 
->>>>>>> origin/Lake-Starr

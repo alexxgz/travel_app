@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <title>Travel Wayfarer</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
   {% block scripts %} {% endblock %}
@@ -13,7 +14,7 @@
 
 <body>
   <ul class="navBar" style="min-width: 101vw; margin-left: -1vw; margin-top: -1vh;">
-    <li class="logo"><i class="sun icon"></i>Wayfarer</li>
+    <li class="logo"><i class="sun icon"></i><a href="/">Wayfarer</a></li>
     <li style="float:right"><a href="{% url 'signup' %}">Create Account</a></li>
     <li style="float:right"><a href="{% url 'login' %}">Sign In</a></li>
   </ul>

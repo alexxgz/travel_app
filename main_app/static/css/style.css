@@ -93,8 +93,8 @@
 }
 #skyline {
   margin: 0;
-  margin-bottom: -70px;
-  margin-top: -70px;
+  margin-bottom: -5vh;
+  margin-top: -5vh;
   margin-left: -1vw;
   min-width: 101vw;
   max-width: 101vw;

@@ -1,12 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Log in</h1>
-
+<div>
+<h1 style="text-align: center; margin-right: 3vw;">Log in</h1>
+<img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
+</div>
 <!-- Add the login form -->
+<<<<<<< HEAD
 <form method="POST" action="{% url 'login' %}">
   {% csrf_token %} {{ form.as_p }}
   <input type="submit" class="btn" value="login">
+=======
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+	<table border="1">
+	{% for field in form.visible_fields %}
+		<tr>
+			<th>{{ field.label_tag }}</th>
+			<td>
+				{{field.errors}}
+				{{ field }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+  <input type="submit" class="btn-login" value="Login">
+>>>>>>> Lake-Starr
   <input type="hidden" name="next" value="{{ next }}">
 </form>
 

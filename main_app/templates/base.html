@@ -1,5 +1,8 @@
 {% load bootstrap3 %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> Lake-Starr
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,20 +13,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <title>Travel Wayfarer</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  <link rel="stylesheet" type="text/css"href="{% static 'css/style.css' %}"/>
   {% block scripts %} {% endblock %}
 </head>
 
 <body>
   <ul class="navBar" style="min-width: 101vw; margin-left: -1vw; margin-top: -1vh;">
-    <li class="logo"><i class="sun icon"></i><a href="/">Wayfarer</a></li>
+    <li><a href="/">&#x263C Wayfarer</a></li>
     <li style="float:right"><a href="{% url 'signup' %}">Create Account</a></li>
     <li style="float:right"><a href="{% url 'login' %}">Sign In</a></li>
   </ul>
     {% block content %}
     {% endblock %}
     <footer class="page-footer">
-        <div class="right">All Rights Reserved, &copy; 2021 Wayfarer &nbsp;</div>
+        <div class="right" style="position: absolute; margin-bottom: 0;">All Rights Reserved, &copy; 2021 Wayfarer &nbsp;</div>
     </footer>
 </body>
 

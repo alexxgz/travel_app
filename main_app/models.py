@@ -39,4 +39,3 @@ posts = [
 #         self.last_name = last_name
 #         self.posts = posts
 #         self.current_city = current_city
-

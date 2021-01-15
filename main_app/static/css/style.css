@@ -1,5 +1,5 @@
 .sun {
-    color: #ea5f2d;
+  color: #ea5f2d;
 }
 .red-text {
     color: red;
@@ -9,24 +9,16 @@
     display: none;
 }
 .logo {
-    font-size: 20px;
-    color: white;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-.logo:hover{
-    color: #f1e6db;
+.logo a:hover {
+  color: #f0edeb;
 }
-.navBar {
-    font-size: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
   
 li {
     float: left;
@@ -41,11 +33,10 @@ li a {
   }
   
   /* Change the link color to #111 (black) on hover */
-li a:hover {
+.account a:hover {
     background-color: #690C35;
-    color: #f1e6db;
+    color: #f0edeb;
   }
-
 
   /* The popup form - hidden by default */
 .form-popup {
@@ -92,20 +83,84 @@ body {
     background-color: #f0edeb;
 }
 
-.navBar {
-    background-color: rgb(134,15,68);
-}
-
 .page-footer {
     position: relative;
     bottom:0;
     left:1%;
+    margin: 1%;
 }
 
   /* Home.html */
 .wayfarerIs {
     text-align: center;
     padding: 2%;
-    margin: 1%;
 }
 
+.btn {
+    background-color: whitesmoke;
+    border: solid 3px  #ea5f2d;
+    color: #ea5f2d;
+    min-height: 3vw;
+    margin-right: 40vw;
+    margin-left: 40vw;
+    font-size: 25px;
+    border-radius: 2em;
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 20vw;
+}
+  .navBar {
+      font-size: 20px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgb(134,15,68);
+}
+
+#skyline {
+  margin: 0;
+  margin-bottom: -70px;
+  margin-top: -70px;
+  margin-left: -1vw;
+  min-width: 101vw;
+  max-width: 101vw;
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  margin-left: -1vw;
+  margin-top: 5vh;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 -25px 100px #ea5f2d;
+  min-width: 101vw;
+  border: solid 1px #860f44;
+}
+tr {
+  background-color: #860f44;
+  color: #ffffff;
+  text-align: left;
+}
+th,
+td {
+  padding: 12px 15px;
+}
+td {
+  background-color:#860f44;
+}
+th {
+  font-size: 25px;
+}
+input {
+  min-width: 250px;
+  min-height: 50px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 25px;
+  background-color: #860f44;
+  color: white;
+  border: none;
+  border-bottom: solid 1px white;
+}

@@ -6,11 +6,6 @@
 <img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
 </div>
 <!-- Add the login form -->
-<<<<<<< HEAD
-<form method="POST" action="{% url 'login' %}">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-=======
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ form.non_field_errors }}
@@ -26,7 +21,6 @@
 		{% endfor %}
 	</table>
   <input type="submit" class="btn-login" value="Login">
->>>>>>> Lake-Starr
   <input type="hidden" name="next" value="{{ next }}">
 </form>
 

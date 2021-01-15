@@ -5,9 +5,12 @@
     color: red;
     font-size: 25px;
 }
+<<<<<<< HEAD
 .errorlist {
     display: none;
 }
+=======
+>>>>>>> origin/Lake-Starr
 .logo {
   font-size: 20px;
   color: white;
@@ -16,8 +19,13 @@
   padding: 14px 16px;
   text-decoration: none;
 }
+<<<<<<< HEAD
 .logo a:hover {
   color: #f0edeb;
+=======
+.logo:hover{
+  background-color: #111;
+>>>>>>> origin/Lake-Starr
 }
   
 li {
@@ -95,8 +103,7 @@ body {
     text-align: center;
     padding: 2%;
 }
-
-.btn {
+.btn-login {
     background-color: whitesmoke;
     border: solid 3px  #ea5f2d;
     color: #ea5f2d;
@@ -120,8 +127,8 @@ body {
 
 #skyline {
   margin: 0;
-  margin-bottom: -70px;
-  margin-top: -70px;
+  margin-bottom: -5vh;
+  margin-top: -5vh;
   margin-left: -1vw;
   min-width: 101vw;
   max-width: 101vw;
@@ -164,3 +171,96 @@ input {
   border: none;
   border-bottom: solid 1px white;
 }
+<<<<<<< HEAD
+=======
+.navBar {
+    font-size: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #690C35;
+    color: #f1e6db;
+  }
+
+
+  /* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  /* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+ }
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: red;
+}
+  
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+  /* Base.html */
+body {
+    background-color: #f0edeb;
+}
+
+.navBar {
+    background-color: rgb(134,15,68);
+}
+
+.page-footer {
+    position: relative;
+    bottom:0;
+    left:1%;
+}
+
+  /* Home.html */
+.wayfarerIs {
+    text-align: center;
+    padding: 2%;
+    margin: 1%;
+}
+
+>>>>>>> origin/Lake-Starr

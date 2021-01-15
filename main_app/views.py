@@ -58,13 +58,13 @@ posts = [
 ]
 
 
-# def profile(request):
-#   # current_user = request.user
-#   if request.user.is_authenticated:
-#     context = { 'user': user }
-#     return render(request, 'user/profile.html',context)
-#   else: 
-#     return redirect('accounts/signup')
+def profile(request):
+  current_user = request.user
+  context = {'posts' : posts}
+  if request.user.is_authenticated:
+    return render(request, 'user/profile.html', context)
+  else: 
+    return redirect('accounts/signup')
 
 
 def signup(request):

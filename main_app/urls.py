@@ -7,5 +7,5 @@ urlpatterns = [
     path('cities/', views.cities_index, name= 'cities_index'),
     path('posts_show/', views.posts_show, name= 'posts_show'),
     path('accounts/signup', views.signup, name='signup'),
-    # path('user_profile/', views.user_profile, name='user_profile'),
+    path('profile/', views.profile, name='profile'),
 ]

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
 <h1>Cities</h1>
 
   {% comment %} {% for city in cities %}
@@ -8,10 +9,13 @@
     <div class="card-body">
       <h5 class="card-title">{{ city.name }}</h5>
       <p class="card-text">{{ city.state }}</p>
-      <a href="#" class="btn btn-primary">Button</a>
+      <a href="" class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">Button</a>
     </div>
   </div>
   {% endfor %}
+
+
+  
 
  {% for post in posts %}
   <div class="card w-50">

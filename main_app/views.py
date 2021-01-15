@@ -35,17 +35,11 @@ class City:
   def __init__(self, name, state):
     self.name = name 
     self.state = state
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> Alex-G
 
 cities = [
     City('San Francisco', 'California'),
     City('New York City', 'New York')
 ]
-
 
 class Post:
   def __init__(self, title, city, body):

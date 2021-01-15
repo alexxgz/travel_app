@@ -52,8 +52,7 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-
-.btn {
+.btn-login {
     background-color: whitesmoke;
     border: solid 3px  #ea5f2d;
     color: #ea5f2d;

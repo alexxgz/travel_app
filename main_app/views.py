@@ -74,7 +74,8 @@ def signup(request):
       login(request, user)
       return redirect('profile')
     else:
-      error_message = 'Invalid sign up'
+      print(form.errors)
+      error_message = 'Invalid sign up '
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)

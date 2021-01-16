@@ -22,7 +22,7 @@
 	</table>
 	<input type="submit" class="btn-login" value="Sign Up!" id="signUpButton"/>
 	{% if error_message %}
-		<p class="red-text" style="text-align: center;">{{error_message}}</p>
+		<p class="red-text" style="text-align: center;">{{error_message}} {{ form.errors }}</p>
 	{% endif %}
 
 </form>

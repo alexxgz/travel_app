@@ -10,7 +10,6 @@ class City:
         self.name = name 
         self.state = state
         
-
 cities = [
     City('San Francisco', 'California'),
     City('New York City', 'New York')

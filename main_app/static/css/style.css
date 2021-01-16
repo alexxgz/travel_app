@@ -1,3 +1,12 @@
+.carousel {
+    display: inline-block;
+    max-height: 10vh;
+    max-width: 80vw;
+    min-width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
 .sun {
   color: #ea5f2d;
 }

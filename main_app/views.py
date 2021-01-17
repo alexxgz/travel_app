@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm
@@ -80,27 +81,6 @@ posts = [
 ]
 
 
-# def profile(request):
-#     current_user = request.user
-#     context = {'posts': posts}
-#     if request.user.is_authenticated:
-#      return render(request, 'user/profile.html', context)
-#     else: 
-#      return redirect('accounts/signup')
-
-# class Post:
-#   def __init__(self, title, city, body):
-#     self.title = title
-#     self.city = city
-#     self.body = body
-
-# posts = [
-#     Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-#     Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
-
-# ]
-
-
 def signup(request):
   error_message=''
   if request.method == "POST":
@@ -114,4 +94,3 @@ def signup(request):
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
-

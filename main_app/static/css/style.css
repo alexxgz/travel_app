@@ -1,3 +1,14 @@
+.carousel {
+    display: inline-block;
+    max-height: 10vh;
+    max-width: 80vw;
+    min-width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+.link {
+    color: #690C35
+}
 .sun {
   color: #ea5f2d;
 }
@@ -258,5 +269,11 @@ body {
   background: #f0edeb;
   
   
+}
+.postshow{
+  margin: 50px 100px;
+}
 
+.cities-show-btn{
+  margin: 50px 100px;
 }

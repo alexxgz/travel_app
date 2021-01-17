@@ -15,7 +15,6 @@ def home(request):
 
 def profile(request):
   current_user = request.user
-  print (current_user)
   if request.user.is_authenticated:
     context = { 
       'user': current_user,
@@ -25,26 +24,39 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
+
+
 def about(request):
   return HttpResponse('<h1>About</h1>')
 
-def posts_show(request):
+def cities_show(request):
   context = {
     'cities': cities, 
     'posts': posts
     }
-  return render(request, 'posts/show.html', context)
+  return render(request, 'cities/show.html', context)
+
+def posts_show(request):
+  current_user = request.user
+  if request.user.is_authenticated:
+    context = {
+      'user': current_user,
+      'cities': cities, 
+      'posts': posts,
+      }
+    return render(request, 'posts/show.html', context)
+  else:
+    return redirect('acounts/signup')
+
 
 def cities_index(request):
   context = {
-    'cities': cities, 
-    'posts': posts
+    'cities': cities,
+    'posts': posts,
     }
   return render(request, 'cities/index.html', context)
 
    
-
-
 class City:
   def __init__(self, name, state):
     self.name = name 
@@ -68,25 +80,25 @@ posts = [
 ]
 
 
-def profile(request):
-    current_user = request.user
-    context = {'posts': posts}
-    if request.user.is_authenticated:
-     return render(request, 'user/profile.html', context)
-    else: 
-     return redirect('accounts/signup')
+# def profile(request):
+#     current_user = request.user
+#     context = {'posts': posts}
+#     if request.user.is_authenticated:
+#      return render(request, 'user/profile.html', context)
+#     else: 
+#      return redirect('accounts/signup')
 
-class Post:
-  def __init__(self, title, city, body):
-    self.title = title
-    self.city = city
-    self.body = body
+# class Post:
+#   def __init__(self, title, city, body):
+#     self.title = title
+#     self.city = city
+#     self.body = body
 
-posts = [
-    Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-    Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
+# posts = [
+#     Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+#     Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
 
-]
+# ]
 
 
 def signup(request):

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-
+from .forms import RegisterForm
 from .models import City, Post 
 
 
@@ -55,6 +55,7 @@ def cities_index(request):
     }
   return render(request, 'cities/index.html', context)
 
+
    
 
 
@@ -89,6 +90,15 @@ def profile(request):
     else: 
      return redirect('accounts/signup')
 
+def profile_edit(request):
+    current_user = request.user
+    context = {'posts': posts}
+    # if request.user.is_authenticated:
+    return render(request, 'user/edit.html', context)
+    # else: 
+    #  return redirect('accounts/signup')
+
+
 class Post:
   def __init__(self, title, city, body):
     self.title = title
@@ -105,14 +115,14 @@ posts = [
 def signup(request):
   error_message=''
   if request.method == "POST":
-    form = UserCreationForm(request.POST)
+    form = RegisterForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request, user)
       return redirect('profile')
     else:
       error_message = 'Invalid sign up'
-  form = UserCreationForm()
+  form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 

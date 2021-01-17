@@ -15,7 +15,6 @@ def home(request):
 
 def profile(request):
   current_user = request.user
-  print (current_user)
   if request.user.is_authenticated:
     context = { 
       'user': current_user,
@@ -24,6 +23,8 @@ def profile(request):
     return render(request, 'user/profile.html', context)
   else:
     return redirect('acounts/signup')
+
+
 
 def about(request):
   return HttpResponse('<h1>About</h1>')
@@ -36,11 +37,16 @@ def cities_show(request):
   return render(request, 'cities/show.html', context)
 
 def posts_show(request):
-  context = {
-    'cities': cities, 
-    'posts': posts
-    }
-  return render(request, 'posts/show.html', context)
+  current_user = request.user
+  if request.user.is_authenticated:
+    context = {
+      'user': current_user,
+      'cities': cities, 
+      'posts': posts,
+      }
+    return render(request, 'posts/show.html', context)
+  else:
+    return redirect('acounts/signup')
 
 def cities_index(request):
   context = {
@@ -75,13 +81,6 @@ posts = [
 ]
 
 
-def profile(request):
-  current_user = request.user
-  context = {'posts': posts}
-  if request.user.is_authenticated:
-    return render(request, 'user/profile.html', context)
-  else: 
-    return redirect('accounts/signup')
 
 
 def signup(request):

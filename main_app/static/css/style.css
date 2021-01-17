@@ -70,6 +70,13 @@ li a {
     background-color: #ddd;
     outline: none;
   }
+  .carousel {
+    display: inline-block;
+    max-height: 10vh;
+    max-width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
 .form-container .btn {
     background-color: #4CAF50;
     color: white;
@@ -264,3 +271,6 @@ body {
     margin: 1%;
 }
 
+.postshow{
+  margin: 50px 100px;
+}

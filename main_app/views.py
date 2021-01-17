@@ -43,6 +43,7 @@ def posts_show(request):
   else:
     return redirect('acounts/signup')
 
+
 def cities_index(request):
   context = {
     'cities': cities, 
@@ -51,8 +52,6 @@ def cities_index(request):
   return render(request, 'cities/index.html', context)
 
    
-
-
 class City:
   def __init__(self, name, state):
     self.name = name 

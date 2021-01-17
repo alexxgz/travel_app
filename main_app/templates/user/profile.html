@@ -12,9 +12,7 @@
         <a href="#" class="btn btn-warning">
         <h5 class="card-title">Username : {{ user.username }}</h5>
         <p class="card-text">Current City : {{ user.city }}</p>
-        <a href="/accounts/profile/edit" class="btn btn-outline-danger">Edit</a>
-      </div>
-        <p class="card-text">Registration Date : {{ user.startdate }}</p>
+        <p class="card-text">Registration Date : {{ request.user.date_joined }}</p>
         </a>
       </div>
     </div>

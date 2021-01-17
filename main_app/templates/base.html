@@ -14,11 +14,20 @@
 </head>
 
 <body>
-  <ul class="navBar" style="min-width: 101vw; margin-left: -1vw; margin-top: -1vh;">
+{% if request.user.is_authenticated %}
+ <ul class="navBar" style="min-width: 101vw; margin-left: -1vw; margin-top: -1vh;">
+    <li><a href="/">&#x263C Wayfarer</a></li>
+    <li style="float:right"><a href="{% url 'logout' %}?next=/">Log Out</a></li>
+    <li style="float:right"><a href="/accounts/profile">Profile</a></li>
+  </ul>
+{% else %}
+<ul class="navBar" style="min-width: 101vw; margin-left: -1vw; margin-top: -1vh;">
     <li><a href="/">&#x263C Wayfarer</a></li>
     <li style="float:right"><a href="{% url 'signup' %}">Create Account</a></li>
     <li style="float:right"><a href="{% url 'login' %}">Sign In</a></li>
   </ul>
+{% endif %}
+
     {% block content %}
     {% endblock %}
     <footer class="page-footer">

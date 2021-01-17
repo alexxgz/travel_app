@@ -29,7 +29,12 @@ def profile(request):
 def about(request):
   return HttpResponse('<h1>About</h1>')
 
-
+def cities_show(request):
+  context = {
+    'cities': cities, 
+    'posts': posts
+    }
+  return render(request, 'cities/show.html', context)
 
 def posts_show(request):
   current_user = request.user

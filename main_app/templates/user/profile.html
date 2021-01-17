@@ -22,12 +22,12 @@
     {% for post in posts %}
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
+        <h5><a href="/posts_show" class ="link">{{ post.title }}</a>
+      </h5>
         <p class="card-text">{{ post.body }}</p>
         <a href="#" class="btn btn-outline-danger">Edit</a>
       </div>
       <a href="/cities_show" class ="link">View City</a>
-      <a href="/posts_show" class ="link">View Post</a>
     </div>
     {% endfor %} 
   </div>

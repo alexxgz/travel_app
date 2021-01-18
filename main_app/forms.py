@@ -11,3 +11,4 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ("username", "city", "email",)
         help_texts= ""
+

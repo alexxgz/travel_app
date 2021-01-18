@@ -9,6 +9,7 @@ from .models import City, Post
 
 
 
+
 # Create your views here.
 
 def home(request):

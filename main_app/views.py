@@ -26,16 +26,34 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
+# def profile_edit(request):
+#   current_user = request.user
+#   if request.user.is_authenticated:
+#     context = { 
+#       'user': current_user,
+#       'posts': posts
+#       }
+#     return render(request, 'user/edit.html', context)
+#   else:
+#     return redirect('accounts/profile')
+
+
+
 def profile_edit(request):
   current_user = request.user
   if request.user.is_authenticated:
-    context = { 
-      'user': current_user,
-      'posts': posts
-      }
-    return render(request, 'user/edit.html', context)
-  else:
-    return redirect('accounts/profile/edit')
+    if request.method == "POST":
+      form = RegisterForm(request.POST)
+      if form.is_valid():
+        profile = form.save()
+        return redirect('profile')
+      else:
+          form = RegisterForm()
+
+  form = RegisterForm()
+  context = {'form': form, 'registerForm': RegisterForm, 'user': current_user}
+  return render(request, 'user/edit.html', context)
+
 
 
 def about(request):
@@ -47,6 +65,7 @@ def cities_show(request):
     'posts': posts
     }
   return render(request, 'cities/show.html', context)
+
 
 def posts_show(request):
   current_user = request.user

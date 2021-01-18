@@ -19,13 +19,24 @@
     {% endfor %}
   </div>
 
+
   <div class="col-sm-6">
+
+  <div style="float: left;">
+  <h1>San Francisco</h1>
+  <h2>California</h2>
+  </div>
+  <img src="https://qtxasset.com/styles/breakpoint_sm_default_480px_w/s3/travelagentcentral/1597853698/GettyImages-1136437406.jpg/GettyImages-1136437406.jpg?J3neYunxLcKFuuBDV7tatFNIawH6Ascs&itok=TBkxtz0m" class="city-pic" alt="Night-time view of Golden Gate Bridge">
+  <div class="add-btn" >
+  <a href="#" style="border: 3px solid; float: right;" class="btn btn-outline-danger" id="post-add-btn">+</a>
+  <h1>Post</h1>
+  </div>
     {% for post in posts %}
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.body }}</p>
-        <a href="#" class="btn btn-outline-danger">Edit</a>
+        <a href="#" class="btn btn-outline-danger ">Edit</a>
       </div>
     </div>
     {% endfor %} 

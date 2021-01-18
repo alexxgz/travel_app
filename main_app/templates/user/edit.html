@@ -4,11 +4,15 @@
 
 <div class="container">
     <form method="post" enctype="multipart/form-data">
+
         {% csrf_token %}
-        <table>
-        {{ form.as_table }}
-        {{ profile_form.as_table }}
-        </table>
+        {{ profile_form.as_p }}  
+	    {% for field in form.visible_fields %} 
+            <label for="fname">{{ field.label_tag }}</label>
+            <input type="text" id="fname" name="fname" value="{{user}}"><br><br> 
+		{% endfor %} 
+	
+
         <button type="submit">Submit Edits</button>
     </form>
     <br>

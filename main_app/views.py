@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm
 from .models import City, Post 
@@ -106,3 +107,7 @@ def signup(request):
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+
+
+  

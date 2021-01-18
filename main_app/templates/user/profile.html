@@ -13,7 +13,9 @@
         <h5 class="card-title">Username : {{ user.username }}</h5>
         <p class="card-text">Current City : {{ user.city }}</p>
         <p class="card-text">Registration Date : {{ request.user.date_joined }}</p>
+        <p class="card-text">Email : {{ user.email }} </p>
         <a href="/profile_edit" class="btn btn-outline-danger">Edit</a>
+        </a>
       </div>
     </div>
   </div>

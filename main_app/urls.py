@@ -10,5 +10,5 @@ urlpatterns = [
     path('posts_show/', views.posts_show, name= 'posts_show'),
     path('cities_show/', views.cities_show, name= 'cities_show'),
     path('accounts/signup', views.signup, name='signup'),
-    path('accounts/profile/', views.profile, name='profile')
+    path('accounts/profile/', views.profile, name='profile'),
 ]

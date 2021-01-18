@@ -98,10 +98,11 @@ def signup(request):
   if request.method == "POST":
     form = RegisterForm(request.POST)
     if form.is_valid():
-      user = form.save()
-      login(request, user)
+      profile = form.save()
+      login(request, profile)
       return redirect('profile')
     else:
+      print(form.errors)
       error_message = 'Invalid sign up'
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}

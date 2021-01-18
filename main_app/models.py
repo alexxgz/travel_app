@@ -1,8 +1,7 @@
 from django.db import models
-from django.db import models
 from django.urls import reverse
 from datetime import date
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class City:
@@ -10,12 +9,13 @@ class City:
         self.name = name 
         self.state = state
         
-
 cities = [
     City('San Francisco', 'California'),
     City('New York City', 'New York')
 ]
-
+class Profile(AbstractUser):
+    city = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
 
 class Post:
     def __init__(self, title, city, body):

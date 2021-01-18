@@ -1,11 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from django.contrib.auth.models import User
+from .models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from datetime import datetime
 class RegisterForm(UserCreationForm):
-    city = forms.ChoiceField(choices=[(1,'Seattle'),(2,'San Francisco'),(3,'New York'),(4,'London'),(5,'Hong Kong')])   
+    city = forms.ChoiceField(choices=[('Seattle','Seattle'),('San Fancisco','San Francisco'),('New York','New York'),('London','London'),('Hong Kong','Hong Kong')])   
     class Meta:
-        model = User
+        model = Profile
         fields = ("username", "city", "email",)
         help_texts= ""

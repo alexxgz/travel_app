@@ -4,7 +4,7 @@ from datetime import date
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class City:
+class City(models.Model):
     def __init__(self, name, state):
         self.name = name 
         self.state = state
@@ -17,7 +17,7 @@ class Profile(AbstractUser):
     city = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
 
-class Post:
+class Post(models.Model):
     def __init__(self, title, city, body):
         self.title = title
         self.city = city

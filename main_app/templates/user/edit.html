@@ -5,7 +5,6 @@
 <h1 style="text-align: center; margin-right: 25vw;">Edit your profile</h1>
 <img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
 </div>
-<br></br>
   <form method="POST" action="{% url 'edit_profile' %}" class="">
   {% csrf_token %} 
 	{{ form.non_field_errors }}
@@ -20,7 +19,7 @@
 		</tr>
 		{% endfor %}
 	</table>
-  <button type=“update”>Update</button>
+  <button type=“update” class="btn-login">Update</button>
 </form>
 
 {% endblock %}

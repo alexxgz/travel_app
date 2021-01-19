@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterForm
+from .forms import RegisterForm, EditUserForm
 from .models import City, Post 
-
-
 
 
 # Create your views here.
@@ -16,10 +15,10 @@ def home(request):
   return render(request, 'home.html')
 
 def profile(request):
-  current_user = request.user
+  user = request.user
   if request.user.is_authenticated:
     context = { 
-      'user': current_user,
+      'user': user,
       'posts': posts
       }
     return render(request, 'user/profile.html', context)
@@ -104,3 +103,32 @@ def signup(request):
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+
+def edit_profile(request):
+  if request.method == 'POST':
+    form = EditUserForm(request.POST)
+    if form.is_valid():
+      user = request.user
+      print(user)
+      print(user.city)
+      if request.POST['username']:
+        user.username = request.POST['username']
+      print(user)
+      print(user.city)
+      user.city = request.POST['city']
+      print(user)
+      print(user.city)
+      user.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid input'
+      
+  current_user = request.user
+  form = EditUserForm(initial={'city' : current_user.city})
+  context = {'form': form, 'user': current_user}
+  return render(request, 'user/edit.html', context)
+
+
+  

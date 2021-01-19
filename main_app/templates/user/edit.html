@@ -5,24 +5,21 @@
 <h1 style="text-align: center; margin-right: 25vw;">Edit your profile</h1>
 <img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
 </div>
-
-<!-- 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="edit-profile">
-      <h3>Username</h3>
-      <input type="text" name="username" value="{{ user.name }}" maxlength="150" required="" id="id_username">
-      <h3>City</h3>
-      <input type="text" name="city" value="{{ user.city }}" maxlength="400" id="id_bio">
-      <h3>Email</h3>
-      <input type="email" name="email" value="{{ user.email }}" maxlength="254" id="id_email">
-      <button type="submit">Update</button>
-    </div>
-  </form> -->
 <br></br>
-  <form method=“POST” action=“/accounts/profile/edit” class=“”>
-  {% csrf_token %}
-  {{ form.as_p }}
+  <form method="POST" action="{% url 'edit_profile' %}" class="">
+  {% csrf_token %} 
+	{{ form.non_field_errors }}
+	<table border="1">
+	{% for field in form.visible_fields %}
+		<tr>
+			<th>{{ field.label_tag }}</th>
+			<td>
+				{{field.errors}}
+				{{ field }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
   <button type=“update”>Update</button>
 </form>
 

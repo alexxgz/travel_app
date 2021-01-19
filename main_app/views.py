@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterForm
+from .forms import RegisterForm, EditUserForm
 from .models import City, Post 
 
 
@@ -17,10 +17,10 @@ def home(request):
   return render(request, 'home.html')
 
 def profile(request):
-  current_user = request.user
+  user = request.user
   if request.user.is_authenticated:
     context = { 
-      'user': current_user,
+      'user': user,
       'posts': posts
       }
     return render(request, 'user/profile.html', context)
@@ -111,63 +111,28 @@ def signup(request):
 
 
 def edit_profile(request):
-  form = RegisterForm()
-  context = {'form': form}
-  return render(request, 'user/edit.html', context )
-
-
-# def profile_edit(request):
-#   current_user = request.user
-#   if request.user.is_authenticated:
-#     form = RegisterForm()
-#     context = { 
-#       'user': current_user,
-#       'posts': posts,
-#       'form': form
-#       }
-#     if request.method == "POST":
-#       form = RegisterForm(request.POST)
-#       if form.is_valid():
-#         profile = form.update()
-#         return redirect('profile')
-#       else:
-#         form = RegisterForm()
-#       return render(request, 'user/edit.html', context)
-#   else:
-#     return redirect('signup')
-  
-  # def profile_edit(request):
-  #   form = RegisterForm()
-  #   current_user = request.user
-  #   context = {‘form’: form, ‘registerForm’: RegisterForm, ‘user’: current_user}
-  #   if request.user.is_authenticated:
-  #     if request.method == “POST”:
-  #     form = RegisterForm(request.POST)
-  #       if form.is_valid():
-  #       profile = form.save()
-  #         return redirect(‘profile’)
-  #       else:
-  #         form = RegisterForm()
-  #   else:   
-  #     return redirect(‘signup’)
-
- 
-
-  # if form.is_valid():
-  #     profile = form.save()
-  #     UserChangeForm(request, profile)
-  # return redirect('profile')
-
-  # else:
-  #     print(form.errors)
-  #     error_message = 'Invalid update'
-  #     form = UserChangeForm()
-  #     context = {'form': form, 'error_message': error_message}
-  # return render(request, 'user/profile.html', context)
-
-  
-
-  
+  if request.method == 'POST':
+    form = EditUserForm(request.POST)
+    if form.is_valid():
+      user = request.user
+      print(user)
+      print(user.city)
+      if request.POST['username']:
+        user.username = request.POST['username']
+      print(user)
+      print(user.city)
+      user.city = request.POST['city']
+      print(user)
+      print(user.city)
+      user.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid input'
+  current_user = request.user
+  form = EditUserForm(initial={'city' : current_user.city})
+  context = {'form': form, 'user': current_user}
+  return render(request, 'user/edit.html', context)
 
 
   

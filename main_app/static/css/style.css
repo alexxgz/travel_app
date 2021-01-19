@@ -62,6 +62,16 @@ li a {
     background-color: #ddd;
     outline: none;
   }
+<<<<<<< HEAD
+  .carousel {
+    display: inline-block;
+    max-height: 10vh;
+    max-width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+=======
+>>>>>>> Alex-G
 .form-container .btn {
     background-color: #4CAF50;
     color: white;
@@ -266,6 +276,9 @@ body {
   margin: 50px 100px;
 }
 
+<<<<<<< HEAD
+=======
 .cities-show-btn{
   margin: 50px 100px;
+>>>>>>> Alex-G
 }

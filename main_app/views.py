@@ -1,13 +1,12 @@
-from django.shortcuts import render, redirect 
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import login, logout
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, User
+from django.http import HttpResponse
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from . forms import RegisterForm
-from . models import City, Post 
-from django.urls import reverse
+from .forms import RegisterForm, EditUserForm
+from .models import City, Post 
 
 
 
@@ -18,16 +17,26 @@ def home(request):
   return render(request, 'home.html')
 
 def profile(request):
-  current_user = request.user
+  user = request.user
   if request.user.is_authenticated:
     context = { 
-      'user': current_user,
-      'posts': posts,
+      'user': user,
+      'posts': posts
       }
     return render(request, 'user/profile.html', context)
   else:
     return redirect('acounts/signup')
 
+# def profile_edit(request):
+#   current_user = request.user
+#   if request.user.is_authenticated:
+#     context = { 
+#       'user': current_user,
+#       'posts': posts
+#       }
+#     return render(request, 'user/edit.html', context)
+#   else:
+#     return redirect('accounts/profile/edit')
 
 def about(request):
   return HttpResponse('<h1>About</h1>')
@@ -58,6 +67,7 @@ def cities_index(request):
     'posts': posts,
     }
   return render(request, 'cities/index.html', context)
+
 
    
 class City:
@@ -98,16 +108,29 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-
 def edit_profile(request):
   if request.method == 'POST':
-    register_form = RegisterForm(request.POST)
-    if RegisterForm.is_valid():
-        RegisterForm.save()
-        return redirect('user/profile.html')
+    form = EditUserForm(request.POST)
+    if form.is_valid():
+      user = request.user
+      print(user)
+      print(user.city)
+      if request.POST['username']:
+        user.username = request.POST['username']
+      print(user)
+      print(user.city)
+      user.city = request.POST['city']
+      print(user)
+      print(user.city)
+      user.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid input'
+  current_user = request.user
+  form = EditUserForm(initial={'city' : current_user.city})
+  context = {'form': form, 'user': current_user}
+  return render(request, 'user/edit.html', context)
 
-  form = RegisterForm(instance=User)
-  context = {"form": form}
-  return render(request, 'user/edit.html', context )
 
-
+  

@@ -26,39 +26,12 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
-# def profile_edit(request):
-#   current_user = request.user
-#   if request.user.is_authenticated:
-#     context = { 
-#       'user': current_user,
-#       'posts': posts
-#       }
-#     return render(request, 'user/edit.html', context)
-#   else:
-#     return redirect('accounts/profile')
-
 def edit_profile(request):
   current_user = request.user
   if request.user.is_authenticated:
     form = RegisterForm()
     context = {'form': form}
     return render(request, 'user/edit.html', context )
-
-# def profile_edit(request):
-#   current_user = request.user
-#   if request.user.is_authenticated:
-#     if request.method == "POST":
-#       form = RegisterForm(request.POST)
-#       if form.is_valid():
-#         profile = form.save()
-#         return redirect('profile')
-#   else:
-#     form = RegisterForm()
-
-#   form = RegisterForm()
-#   context = {'form': form, 'registerForm': RegisterForm, 'user': current_user}
-#   return render(request, 'user/edit.html', context)
-
 
 
 def about(request):

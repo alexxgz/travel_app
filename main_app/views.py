@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import login
-from django.contrib.auth import logout
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect 
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from . forms import RegisterForm
 from . models import City, Post 
+from django.urls import reverse
 
 
 
@@ -21,15 +22,12 @@ def profile(request):
   if request.user.is_authenticated:
     context = { 
       'user': current_user,
-      'posts': posts
+      'posts': posts,
       }
     return render(request, 'user/profile.html', context)
   else:
     return redirect('acounts/signup')
 
-
-def profile_edit(request):
-  return HttpResponse('<h1>edit</h1>')
 
 def about(request):
   return HttpResponse('<h1>About</h1>')
@@ -98,5 +96,18 @@ def signup(request):
   form = RegisterForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+
+
+def edit_profile(request):
+  if request.method == 'POST':
+    register_form = RegisterForm(request.POST)
+    if RegisterForm.is_valid():
+        RegisterForm.save()
+        return redirect('user/profile.html')
+
+  form = RegisterForm(instance=User)
+  context = {"form": form}
+  return render(request, 'user/edit.html', context )
 
 

@@ -27,18 +27,6 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
-# def profile_edit(request):
-#   current_user = request.user
-#   if request.user.is_authenticated:
-#     context = { 
-#       'user': current_user,
-#       'posts': posts
-#       }
-#     return render(request, 'user/edit.html', context)
-#   else:
-#     return redirect('accounts/profile/edit')
-
-
 def about(request):
   return HttpResponse('<h1>About</h1>')
 

@@ -5,7 +5,6 @@
 <h1 style="text-align: center; margin-right: 25vw;">Create Your Account</h1>
 <img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
 </div>
-
 <form method="POST" action="{% url 'signup' %}">
 	{% csrf_token %} 
 	{{ form.non_field_errors }}

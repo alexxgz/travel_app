@@ -10,3 +10,11 @@ class RegisterForm(UserCreationForm):
         fields = ("username", "city", "email",)
         help_texts= ""
 
+# class EditProfileForm(UserChangeForm):
+#     city = forms.ChoiceField(choices=[('Seattle','Seattle'),('San Fancisco','San Francisco'),('New York','New York'),('London','London'),('Hong Kong','Hong Kong')])   
+#     class Meta:
+#         model = Profile
+#         fields = ("username", "city", "email",)
+#         help_texts= ""
+
+

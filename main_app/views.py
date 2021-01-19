@@ -27,16 +27,16 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
-def profile_edit(request):
-  current_user = request.user
-  if request.user.is_authenticated:
-    context = { 
-      'user': current_user,
-      'posts': posts
-      }
-    return render(request, 'user/edit.html', context)
-  else:
-    return redirect('accounts/profile/edit')
+# def profile_edit(request):
+#   current_user = request.user
+#   if request.user.is_authenticated:
+#     context = { 
+#       'user': current_user,
+#       'posts': posts
+#       }
+#     return render(request, 'user/edit.html', context)
+#   else:
+#     return redirect('accounts/profile/edit')
 
 
 def about(request):
@@ -109,6 +109,65 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
+def edit_profile(request):
+  form = RegisterForm()
+  context = {'form': form}
+  return render(request, 'user/edit.html', context )
+
+
+# def profile_edit(request):
+#   current_user = request.user
+#   if request.user.is_authenticated:
+#     form = RegisterForm()
+#     context = { 
+#       'user': current_user,
+#       'posts': posts,
+#       'form': form
+#       }
+#     if request.method == "POST":
+#       form = RegisterForm(request.POST)
+#       if form.is_valid():
+#         profile = form.update()
+#         return redirect('profile')
+#       else:
+#         form = RegisterForm()
+#       return render(request, 'user/edit.html', context)
+#   else:
+#     return redirect('signup')
+  
+  # def profile_edit(request):
+  #   form = RegisterForm()
+  #   current_user = request.user
+  #   context = {‘form’: form, ‘registerForm’: RegisterForm, ‘user’: current_user}
+  #   if request.user.is_authenticated:
+  #     if request.method == “POST”:
+  #     form = RegisterForm(request.POST)
+  #       if form.is_valid():
+  #       profile = form.save()
+  #         return redirect(‘profile’)
+  #       else:
+  #         form = RegisterForm()
+  #   else:   
+  #     return redirect(‘signup’)
+
+ 
+
+  # if form.is_valid():
+  #     profile = form.save()
+  #     UserChangeForm(request, profile)
+  # return redirect('profile')
+
+  # else:
+  #     print(form.errors)
+  #     error_message = 'Invalid update'
+  #     form = UserChangeForm()
+  #     context = {'form': form, 'error_message': error_message}
+  # return render(request, 'user/profile.html', context)
+
+  
+
+  
 
 
   

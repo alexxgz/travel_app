@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Profile
+from .models import Profile, Post, City
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from datetime import datetime
 

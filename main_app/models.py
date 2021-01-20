@@ -5,12 +5,9 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class City(models.Model):
-    city = models.CharField(max_length=250, default='')
-    image = models.URLField((""), max_length=1000, default='')
-    country = models.CharField(max_length=250, default='')
-    def __str__(self):
-        return self.name
-
+    def __init__(self, name, state):
+        self.name = name 
+        self.state = state
         
 class Profile(AbstractUser):
     city = models.CharField(max_length=50)

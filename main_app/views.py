@@ -38,7 +38,6 @@ def profile(request):
 #   else:
 #     return redirect('accounts/profile/edit')
 
-
 def about(request):
   return HttpResponse('<h1>About</h1>')
 

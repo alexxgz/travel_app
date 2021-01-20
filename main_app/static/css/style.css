@@ -62,16 +62,6 @@ li a {
     background-color: #ddd;
     outline: none;
   }
-<<<<<<< HEAD
-  .carousel {
-    display: inline-block;
-    max-height: 10vh;
-    max-width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-  }
-=======
->>>>>>> Alex-G
 .form-container .btn {
     background-color: #4CAF50;
     color: white;
@@ -164,6 +154,8 @@ td {
 }
 th {
   font-size: 25px;
+  max-width: 5vw;
+  min-width: 5vw;
 }
 input {
   min-width: 250px;
@@ -276,9 +268,16 @@ body {
   margin: 50px 100px;
 }
 
-<<<<<<< HEAD
-=======
 .cities-show-btn{
   margin: 50px 100px;
->>>>>>> Alex-G
+}
+#id_body{
+  min-width: 90vw;
+  min-height: 20vh;
+  font-size: 14px;
+  background-color: whitesmoke;
+  margin-left: 1vw;
+}
+#id_title{
+  margin-left: 1vw;
 }

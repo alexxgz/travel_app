@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div>
+<h1 style="text-align: center; margin-right: 25vw;">Create Your Post</h1>
+<img src="https://webstockreview.net/images/cityscape-clipart-large-city-19.png" alt="city skyline" id="skyline">
+</div>
+<form method="POST" action="{% url 'posts_new' %}">
+	{% csrf_token %} 
+	{{ form.non_field_errors }}
+	<table border="1">
+	{% for field in form.visible_fields %}
+		<tr>
+			<th>{{ field.label_tag }}</th>
+			<td>
+				{{field.errors}}
+				{{ field }}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<input type="submit" class="btn-login" value="Submit Post!" id="signUpButton"/>
+	{% if error_message %}
+		<p class="red-text" style="text-align: center;">{{error_message}} {{ form.errors }}</p>
+	{% endif %}
+
+</form>
+
+{% endblock %}

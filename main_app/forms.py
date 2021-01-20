@@ -21,7 +21,7 @@ class EditUserForm(UserChangeForm):
 
 class Post_Form(ModelForm):
     title = forms.CharField(max_length=254, required=True)
-    body = forms.CharField(max_length=10000, required=True)
+    body = forms.CharField(max_length=10000, required=True, widget=forms.Textarea)
     class Meta:
         model = Post
         fields = ['title', 'body']

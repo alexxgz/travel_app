@@ -102,5 +102,24 @@ def edit_profile(request):
   context = {'form': form, 'user': current_user}
   return render(request, 'user/edit.html', context)
 
-
+def make_post(request):
+  error_message=''
+  if request.method == "POST":
+    form = Post_Form(request.POST)
+    if form.is_valid():
+      author = request.user
+      article = Post
+      print(author.id)
+      print(article.user)
+      article = form.save(commit=False)
+      article.user = author
+      article.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid post input'
+  form = Post_Form()
+  current_user = request.user
+  context= {'form' : form, 'error_message': error_message, 'user': current_user}
+  return render(request, 'posts/new.html', context)
   

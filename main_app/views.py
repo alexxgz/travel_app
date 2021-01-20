@@ -34,8 +34,7 @@ def about(request):
 
 def cities_show(request, city_id):
   posts = Post.objects.all()
-  cities = City.objects.all()
-  city = City.objects.get(id=city_id)
+  cities = City.objects.filter(id=city_id)
   context = {
     'cities': cities, 
     'posts': posts

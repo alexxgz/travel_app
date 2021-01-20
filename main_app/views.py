@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import City, Post 
-from .forms import RegisterForm, EditUserForm, Post_Form
+from .forms import RegisterForm, EditUserForm, Post_Form, City_Form
 
 
 # Create your views here.

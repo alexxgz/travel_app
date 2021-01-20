@@ -1,48 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<h1>Cities</h1>
-
-
-  <div class="row">
-  <div class="col-sm-6 ">
-    {% for city in cities %}
-    <div class="card">
-      <div class="card-body d-grid gap-2">
-        <a href="/cities_show" class="btn btn-warning"">
-        <h5 class="card-title">{{ city.name }}</h5>
-        <p class="card-text">{{ city.state }}</p>
-        </a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-
-  <div class="col-sm-6">
-
-  <div style="float: left;">
-  <h1>San Francisco</h1>
-  <h2>California</h2>
-  </div>
-  <img src="https://qtxasset.com/styles/breakpoint_sm_default_480px_w/s3/travelagentcentral/1597853698/GettyImages-1136437406.jpg/GettyImages-1136437406.jpg?J3neYunxLcKFuuBDV7tatFNIawH6Ascs&itok=TBkxtz0m" class="city-pic" alt="Night-time view of Golden Gate Bridge">
-  <div class="add-btn" >
-  <a href="#" style="border: 3px solid; float: right;" class="btn btn-outline-danger" id="post-add-btn">+</a>
-  <h1>Post</h1>
-  </div>
-    {% for post in posts %}
-    <div class="card">
+<div class="cities-show-btn">
+<div class="d-grid gap-2 col-9 mx-auto">
+ {% for city in cities %}
+  <div class="card">
+    <a href="/cities_show" class="btn btn-outline-danger">
       <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.body }}</p>
-        <a href="#" class="btn btn-outline-danger ">Edit</a>
+        <h5 class="card-title">{{ city.city }}</h5>
       </div>
-    </div>
-    {% endfor %} 
-    </div>
-    </div>
-  
-  
-{% endblock %}
+    </a>
+  </div>
+ {% endfor %} 
+<div>
+ 
 
+
+</div>
+{% endblock %}

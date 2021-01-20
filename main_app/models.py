@@ -4,26 +4,19 @@ from datetime import date
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-# class City(models.Model):
-#     def __init__(self, name, state):
-#         self.name = name 
-#         self.state = state
-        
-# cities = [
-#     City('San Francisco', 'California'),
-#     City('New York City', 'New York')
-# ]
-
 class City(models.Model):
-    name = models.CharField(max_length=50)
-    image = models.URLField(max_length=200)
-    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=250, default='')
+    image = models.URLField((""), max_length=1000, default='')
+    country = models.CharField(max_length=250, default='')
+    def __str__(self):
+        return self.name
+
         
 class Profile(AbstractUser):
     city = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
 
-# class Post(models.Model):
+# class Post:
 #     def __init__(self, title, city, body):
 #         self.title = title
 #         self.city = city
@@ -36,8 +29,8 @@ class Profile(AbstractUser):
 # ]
 
 class Post(models.Model):
-    title = models.CharField(max_length=50)
-    body = body.TextField(max_length=1000)    
-        
-def __str__(self):
+    title = models.CharField(max_length=100)
+    body = models.CharField(max_length=500)
+    def __str__(self):
         return self.name
+

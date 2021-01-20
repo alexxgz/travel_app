@@ -3,11 +3,11 @@
 
 <div class="cities-show-btn">
 <div class="d-grid gap-2 col-9 mx-auto">
- {% for post in posts %}
+ {% for city in cities %}
   <div class="card">
     <a href="/posts_show" class="btn btn-outline-danger">
       <div class="card-body">
-        <h5 class="card-title">{{ post.city }}</h5>
+        <h5 class="card-title">{{ city.city }}</h5>
       </div>
     </a>
   </div>

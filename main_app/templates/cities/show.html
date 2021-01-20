@@ -26,7 +26,8 @@
         {% for post in posts %}
           <tr>
             <td><a href="/posts_show">{{post.title}}</a></td>
-            <td>{{post.body}}</td>
+            <td>{{ post.body }}</td>
+            <button class="btn-warning"><a href="{% url 'edit_posts' post_id=post.id %}">Edit</a></button>
           </tr>
         {% endfor %}
       </tbody>

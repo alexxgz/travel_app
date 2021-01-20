@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterForm, EditUserForm
+
 from .models import City, Post 
-
-
+from .forms import RegisterForm, EditUserForm, Post_Form
 
 
 # Create your views here.
@@ -16,8 +15,10 @@ from .models import City, Post
 def home(request):
   return render(request, 'home.html')
 
+
 def profile(request):
   user = request.user
+  posts = Post.objects.all()
   if request.user.is_authenticated:
     context = { 
       'user': user,
@@ -27,29 +28,25 @@ def profile(request):
   else:
     return redirect('acounts/signup')
 
-# def profile_edit(request):
-#   current_user = request.user
-#   if request.user.is_authenticated:
-#     context = { 
-#       'user': current_user,
-#       'posts': posts
-#       }
-#     return render(request, 'user/edit.html', context)
-#   else:
-#     return redirect('accounts/profile/edit')
 
 def about(request):
   return HttpResponse('<h1>About</h1>')
 
+
 def cities_show(request):
+  posts = Post.objects.all()
+  cities = City.objects.all()
   context = {
     'cities': cities, 
     'posts': posts
     }
   return render(request, 'cities/show.html', context)
 
+
 def posts_show(request):
   current_user = request.user
+  posts = Post.objects.all()
+  cities = City.objects.all()
   if request.user.is_authenticated:
     context = {
       'user': current_user,
@@ -62,34 +59,13 @@ def posts_show(request):
 
 
 def cities_index(request):
+  posts = Post.objects.all()
+  cities = City.objects.all()
   context = {
     'cities': cities,
     'posts': posts,
     }
   return render(request, 'cities/index.html', context)
-
-
-   
-class City:
-  def __init__(self, name, state):
-    self.name = name 
-    self.state = state
-
-cities = [
-    City('San Francisco', 'California'),
-    City('New York City', 'New York')
-]
-
-class Post:
-  def __init__(self, title, city, body):
-    self.title = title
-    self.city = city
-    self.body = body
-
-posts = [
-    Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-    Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
-]
 
 
 def signup(request):

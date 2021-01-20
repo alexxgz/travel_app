@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="cities-show-btn">
+<div class="d-grid gap-2 col-9 mx-auto">
+ {% for city in cities %}
+  <div class="card">
+    <a href="{% url 'cities_show' city_id=city.id  %}"class="btn btn-outline-danger">
+      <div class="card-body">
+        <h5 class="card-title">{{ city.city }}</h5>
+      </div>
+    </a>
+  </div>
+ {% endfor %} 
+<div>
+ 
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+
 
 <h1>Cities</h1>
 
@@ -10,22 +40,33 @@
     {% for city in cities %}
     <div class="card">
       <div class="card-body d-grid gap-2">
-        <a href="/cities_show" class="btn btn-warning"">
+        <a href="/cities_show" class="btn btn-warning">
         <h5 class="card-title">{{ city.name }}</h5>
-        <p class="card-text">{{ city.state }}</p>
+        <p class="card-text">{{ city.country }}</p>
+        <p class="card-text">{{ city.image }}</p>
         </a>
       </div>
     </div>
     {% endfor %}
   </div>
 
+
   <div class="col-sm-6">
+
+  <div style="float: left;">
+  <h1>{{post.title}}</h1>
+  <h2>{{post.body}}</h2>
+  </div>
+  <div class="add-btn" >
+  <a href="#" style="border: 3px solid; float: right;" class="btn btn-outline-danger" id="post-add-btn">+</a>
+  <h1>Post</h1>
+  </div>
     {% for post in posts %}
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.body }}</p>
-        <a href="#" class="btn btn-outline-danger">Edit</a>
+        <a href="#" class="btn btn-outline-danger ">Edit</a>
       </div>
     </div>
     {% endfor %} 
@@ -33,5 +74,5 @@
     </div>
   
   
-{% endblock %}
+{% endblock %} {% endcomment %}
 

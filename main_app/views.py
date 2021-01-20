@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import City, Post 
-from .forms import RegisterForm, EditUserForm, Post_Form
+from .forms import RegisterForm, EditUserForm, Post_Form, City_Form
 
 
 # Create your views here.
@@ -33,9 +33,10 @@ def about(request):
   return HttpResponse('<h1>About</h1>')
 
 
-def cities_show(request):
+def cities_show(request, city_id):
   posts = Post.objects.all()
   cities = City.objects.all()
+  city = City.objects.get(id=city_id)
   context = {
     'cities': cities, 
     'posts': posts

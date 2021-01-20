@@ -26,11 +26,29 @@ def profile(request):
     return redirect('acounts/signup')
 
 def edit_profile(request):
+  if request.method == 'POST':
+    form = EditUserForm(request.POST)
+    if form.is_valid():
+      user = request.user
+      print(user)
+      print(user.city)
+      if request.POST['username']:
+        user.username = request.POST['username']
+      print(user)
+      print(user.city)
+      user.city = request.POST['city']
+      print(user)
+      print(user.city)
+      user.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid input'
+      
   current_user = request.user
-  if request.user.is_authenticated:
-    form = RegisterForm()
-    context = {'form': form}
-    return render(request, 'user/edit.html', context )
+  form = EditUserForm(initial={'city' : current_user.city})
+  context = {'form': form, 'user': current_user}
+  return render(request, 'user/edit.html', context)
 
 
 def about(request):
@@ -66,27 +84,27 @@ def cities_index(request):
 
 
    
-class City:
-  def __init__(self, name, state):
-    self.name = name 
-    self.state = state
+# class City:
+#   def __init__(self, name, state):
+#     self.name = name 
+#     self.state = state
 
-cities = [
-    City('San Francisco', 'California'),
-    City('New York City', 'New York')
-]
+# cities = [
+#     City('San Francisco', 'California'),
+#     City('New York City', 'New York')
+# ]
 
-class Post:
-  def __init__(self, title, city, body):
-    self.title = title
-    self.city = city
-    self.body = body
+# class Post:
+#   def __init__(self, title, city, body):
+#     self.title = title
+#     self.city = city
+#     self.body = body
 
-posts = [
-    Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-    Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
+# posts = [
+#     Post('Great Tacos', 'San Francisco', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+#     Post('Great Pizza', 'New York', 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
 
-]
+# ]
 
 
 def signup(request):
@@ -105,30 +123,7 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-def edit_profile(request):
-  if request.method == 'POST':
-    form = EditUserForm(request.POST)
-    if form.is_valid():
-      user = request.user
-      print(user)
-      print(user.city)
-      if request.POST['username']:
-        user.username = request.POST['username']
-      print(user)
-      print(user.city)
-      user.city = request.POST['city']
-      print(user)
-      print(user.city)
-      user.save()
-      return redirect('profile')
-    else:
-      print(form.errors)
-      error_message = 'Invalid input'
-      
-  current_user = request.user
-  form = EditUserForm(initial={'city' : current_user.city})
-  context = {'form': form, 'user': current_user}
-  return render(request, 'user/edit.html', context)
+
 
 
   

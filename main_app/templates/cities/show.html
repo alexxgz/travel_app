@@ -1,4 +1,21 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-6 ">
+        <h5 class="card-title">{{ city.name }}</h5>
+        <p class="card-text">{{ city.country }}</p>
+        <p class="card-text">{{ city.image }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %} 
+
+
+{% comment %} {% extends 'base.html' %}
 {% block content %}
 
 <div class="cities-show-btn">
@@ -17,4 +34,4 @@
 
 
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}

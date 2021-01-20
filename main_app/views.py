@@ -88,15 +88,9 @@ def edit_profile(request):
     form = EditUserForm(request.POST)
     if form.is_valid():
       user = request.user
-      print(user)
-      print(user.city)
       if request.POST['username']:
         user.username = request.POST['username']
-      print(user)
-      print(user.city)
       user.city = request.POST['city']
-      print(user)
-      print(user.city)
       user.save()
       return redirect('profile')
     else:

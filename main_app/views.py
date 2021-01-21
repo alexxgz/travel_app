@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import City, Post 
-from .forms import RegisterForm, EditUserForm, Post_Form, City_Form
+from .forms import RegisterForm, EditUserForm, Post_Form, City_Form, Edit_Post_Form
 
 
 # Create your views here.
@@ -122,3 +122,22 @@ def make_post(request):
   context= {'form' : form, 'error_message': error_message, 'user': current_user}
   return render(request, 'posts/new.html', context)
   
+def edit_post(request, post_id):
+  current_post = Post.objects.get(id=post_id)
+  if request.method == 'POST':
+    form = Post_Form(request.POST, instance=current_post)
+    if form.is_valid():
+      post = Post.objects.get(id=post_id)
+      if request.POST['title']:
+        post.title = request.POST['title']
+      if request.POST['body']:
+        post.body = request.POST['body']
+      #post.city = request.POST['city']
+      post.save()
+      return redirect('profile')
+    else:
+      print(form.errors)
+      error_message = 'Invalid input'
+  form = Edit_Post_Form(initial={'title' : current_post.title, 'body' : current_post.body})
+  context = {'form' : form, 'post' : current_post}
+  return render(request, 'posts/edit.html', context)

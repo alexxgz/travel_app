@@ -21,12 +21,20 @@ class EditUserForm(UserChangeForm):
         help_texts= ""
 
 class Post_Form(ModelForm):
+    city = forms.ChoiceField(choices=[(1,'Seattle'),(2,'San Francisco'),(3,'New York'),(4,'London'),(5,'Hong Kong')])
     title = forms.CharField(max_length=254, required=True)
     body = forms.CharField(max_length=10000, required=True, widget=forms.Textarea)
     class Meta:
         model = Post
-        fields = ['title', 'body']
+        fields = ['title', 'body', 'city']
 
+class Edit_Post_Form(ModelForm):
+    city = forms.ChoiceField(choices=[(1,'Seattle'),(2,'San Francisco'),(3,'New York'),(4,'London'),(5,'Hong Kong')])
+    title = forms.CharField(max_length=254, required=True)
+    body = forms.CharField(max_length=10000, required=True, widget=forms.Textarea)
+    class Meta:
+        model = Post
+        fields = ['title', 'body', 'city']
 
 class City_Form(ModelForm):
     class Meta:

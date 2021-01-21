@@ -42,15 +42,15 @@ def cities_show(request, city_id):
   return render(request, 'cities/show.html', context)
 
 
-def posts_show(request):
+def posts_show(request, post_id):
   current_user = request.user
-  posts = Post.objects.all()
+  post = Post.objects.get(id=post_id)
   cities = City.objects.all()
   if request.user.is_authenticated:
     context = {
       'user': current_user,
       'cities': cities, 
-      'posts': posts,
+      'post': post,
       }
     return render(request, 'posts/show.html', context)
   else:
@@ -117,8 +117,8 @@ def make_post(request):
     else:
       print(form.errors)
       error_message = 'Invalid post input'
-  form = Post_Form()
   current_user = request.user
+  form = Post_Form(initial={'city' : current_user.city})
   context= {'form' : form, 'error_message': error_message, 'user': current_user}
   return render(request, 'posts/new.html', context)
   
@@ -132,7 +132,10 @@ def edit_post(request, post_id):
         post.title = request.POST['title']
       if request.POST['body']:
         post.body = request.POST['body']
-      #post.city = request.POST['city']
+      if request.POST['city']:
+        city_id = request.POST['city']
+        city = City.objects.get(id=city_id)
+        post.city = city
       post.save()
       return redirect('profile')
     else:

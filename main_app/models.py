@@ -18,7 +18,7 @@ class Profile(AbstractUser):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     body = models.CharField(max_length=500)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default=1)
     # def __str__(self):
     #     return self.name
 class Meta:

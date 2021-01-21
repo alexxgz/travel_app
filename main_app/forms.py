@@ -8,13 +8,13 @@ class CityModelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.city
 class RegisterForm(UserCreationForm):
-    city = forms.ChoiceField(choices=[(1,'Seattle'),(2,'San Francisco'),(3,'New York'),(4,'London'),(5,'Hong Kong')]) 
+    city = CityModelChoiceField(queryset=City.objects.all())
     class Meta:
         model = Profile
         fields = ("username", "city", "email",)
         help_texts= ""
 class EditUserForm(UserChangeForm):
-    city = forms.ChoiceField(choices=[('Seattle','Seattle'),('San Fancisco','San Francisco'),('New York','New York'),('London','London'),('Hong Kong','Hong Kong')])
+    city = ityModelChoiceField(queryset=City.objects.all())
     username = forms.CharField(max_length=254, required=False)
     password=None
     class Meta:

@@ -13,7 +13,7 @@ class City(models.Model):
         return self.city
        
 class Profile(AbstractUser):
-    city = models.ForeignKey(City, on_delete=models.CASCADE, default=1, related_name="users")
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="users", default=1 )
     email = models.CharField(max_length=50)
 
 class Post(models.Model):

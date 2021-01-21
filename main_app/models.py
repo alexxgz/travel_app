@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import AbstractUser, User
+import django.utils.timezone
 
 # Create your models here.
 class City(models.Model):
@@ -18,7 +19,9 @@ class Profile(AbstractUser):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     body = models.CharField(max_length=500)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    #timestamp = models.DateTimeField(default=django.utils.timezone.now)
+    #city = models.ForeignKey(City, on_delete=models.CASCADE)
     # def __str__(self):
     #     return self.name
 class Meta:

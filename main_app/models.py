@@ -18,12 +18,10 @@ class Profile(AbstractUser):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    body = models.CharField(max_length=500)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    #timestamp = models.DateTimeField(default=django.utils.timezone.now)
-    #city = models.ForeignKey(City, on_delete=models.CASCADE)
-    # def __str__(self):
-    #     return self.name
+    body = models.CharField(max_length=5000)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
+    timestamp = models.DateTimeField(default=django.utils.timezone.now)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, default=1, related_name="posts")
 class Meta:
     ordering = ['-date']
 

@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<h1>Profile</h1>
+<h1 style="text-align: center;">Your Profile</h1>
 
 
   <div class="row">
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div class="col-sm-6">
-    {% for post in posts %}
+    {% for post in user.posts.all %}
     <div class="card">
       <div class="card-body">
-        <h5><a href="/posts_show" class ="link">{{ post.title }}</a>
+        <h5><a href="/posts_show/{{ post.id }}" class ="link">{{ post.title }}</a> - {{post.city.city}}
       </h5>
         <p class="card-text">{{ post.body }}</p>
         <a href="/posts_edit/{{ post.id }}" class="btn btn-outline-danger">Edit</a>

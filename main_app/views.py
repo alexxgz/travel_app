@@ -132,7 +132,7 @@ def edit_post(request, post_id):
         post.title = request.POST['title']
       if request.POST['body']:
         post.body = request.POST['body']
-      #post.city = request.POST['city']
+      # post.city = request.POST['city']
       post.save()
       return redirect('profile')
     else:

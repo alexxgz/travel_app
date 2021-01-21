@@ -141,3 +141,6 @@ def edit_post(request, post_id):
   form = Edit_Post_Form(initial={'title' : current_post.title, 'body' : current_post.body})
   context = {'form' : form, 'post' : current_post}
   return render(request, 'posts/edit.html', context)
+
+
+

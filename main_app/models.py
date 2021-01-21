@@ -13,17 +13,15 @@ class City(models.Model):
         return self.city
        
 class Profile(AbstractUser):
-    city = models.CharField(max_length=50)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, default=1, related_name="users")
     email = models.CharField(max_length=50)
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    body = models.CharField(max_length=500)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    body = models.CharField(max_length=5000)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, default=1)
-    def __str__(self):
-        return self.title
+    city = models.ForeignKey(City, on_delete=models.CASCADE, default=1, related_name="posts")
 class Meta:
     ordering = ['-date']
 

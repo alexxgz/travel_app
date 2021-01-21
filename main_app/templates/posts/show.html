@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="clearfix postshow">
-  <p class=“card-text”><img src="{{ city.image }}" alt="city picture"></p>
+  <img class="postImg" src={{post.city.image}} alt="Night-time view of Golden Gate Bridge" >
 
-<h1>{{post.title}}</h1>
+<h1>{{ post.title }}</h1>
 <h5> Author: {{user.username}}</h5>
 <hr>
   <p> 
-    {{post.body}}
-
+   {{ post.body }}
   </p>
 
 

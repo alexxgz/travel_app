@@ -281,3 +281,15 @@ body {
 #id_title{
   margin-left: 1vw;
 }
+.postImg{
+  float: right;
+  max-width: 40vw;
+  max-height: 100vh
+}
+.thumbnail{
+  float: left;
+  margin-bottom: 2vh;
+  max-width: 5vw;
+  min-height: 5vw;
+  object-fit: cover;
+}

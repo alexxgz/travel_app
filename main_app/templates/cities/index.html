@@ -6,6 +6,7 @@
   <div class="card">
     <a href="{% url 'cities_show' city_id=city.id  %}"class="btn btn-outline-danger">
       <div class="card-body">
+        <img class="thumbnail" src="{{ city.image}}">
         <h5 class="card-title">{{ city.city }}</h5>
       </div>
     </a>

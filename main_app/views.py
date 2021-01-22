@@ -37,9 +37,11 @@ def about(request):
 def cities_show(request, city_id):
   posts = Post.objects.all()
   cities = City.objects.filter(id=city_id)
+  ordered_posts = Post.objects.order_by('-timestamp')
   context = {
     'cities': cities, 
-    'posts': posts
+    'posts': posts,
+    'ordered_posts': ordered_posts
     }
   return render(request, 'cities/show.html', context)
 

@@ -22,7 +22,7 @@
 <h2>POSTS</h2>
     <table class="table-danger">
       <tbody>
-        {% for post in posts %}
+        {% for post in ordered_posts%}
           <tr>
             <td><a href="/posts_show"><h4>{{post.title}}</h4></a></td>
             <td>{{ post.body }}</td>

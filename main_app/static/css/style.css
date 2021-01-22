@@ -258,12 +258,12 @@ body {
     margin: 1%;
 }
 
-.carousel-item {
-  height: 40rem;
-  background: #f0edeb;
-  
-  
-}
+@media all and (max-width: 699px) and (min-width: 520px) {
+  .carousel-item {
+    height: 40rem;
+    background: #f0edeb;
+    }
+  }
 .postshow{
   margin: 50px 100px;
 }
@@ -293,3 +293,4 @@ body {
   min-height: 5vw;
   object-fit: cover;
 }
+

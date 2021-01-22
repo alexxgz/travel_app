@@ -14,7 +14,7 @@ class RegisterForm(UserCreationForm):
         fields = ("username", "city", "email",)
         help_texts= ""
 class EditUserForm(UserChangeForm):
-    city = ityModelChoiceField(queryset=City.objects.all())
+    city = CityModelChoiceField(queryset=City.objects.all())
     username = forms.CharField(max_length=254, required=False)
     password=None
     class Meta:
@@ -43,3 +43,6 @@ class City_Form(ModelForm):
     class Meta:
         model = City
         fields = ['city', 'image', 'country']
+
+
+        

@@ -19,10 +19,12 @@ def home(request):
 def profile(request):
   user = request.user
   posts = Post.objects.all()
+  ordered_posts = Post.objects.order_by('-timestamp')
   if request.user.is_authenticated:
     context = { 
       'user': user,
-      'posts': posts
+      'posts': posts,
+      'ordered_posts': ordered_posts
       }
     return render(request, 'user/profile.html', context)
   else:
@@ -30,7 +32,7 @@ def profile(request):
 
 def about(request):
   return HttpResponse('<h1>About</h1>')
-
+ 
 
 def cities_show(request, city_id):
   posts = Post.objects.all()
@@ -144,6 +146,8 @@ def edit_post(request, post_id):
   form = Edit_Post_Form(initial={'title' : current_post.title, 'body' : current_post.body})
   context = {'form' : form, 'post' : current_post}
   return render(request, 'posts/edit.html', context)
+
+  
 
 
 

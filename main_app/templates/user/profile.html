@@ -20,6 +20,7 @@
     </div>
   </div>
   <div class="col-sm-6">
+  <a href="/posts_new/" class="btn btn-warning">Create New Post</a>
     {% for post in user.posts.all %}
     <div class="card">
       <div class="card-body">
@@ -27,6 +28,7 @@
       </h5>
         <h6 class="card-text">City: {{ post.city }} </h6>
         <h6 class="card-text">{{ post.body }}</h6>
+        <a href="" class ="btn btn-outline-danger">Delete Post</a>
         <a href="/posts_edit/{{ post.id }}" class="btn btn-outline-danger">Edit Post</a>
         <a href="/cities" class ="btn btn-outline-danger">View City</a>
       </div>

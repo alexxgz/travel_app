@@ -43,3 +43,6 @@ class City_Form(ModelForm):
     class Meta:
         model = City
         fields = ['city', 'image', 'country']
+
+
+        

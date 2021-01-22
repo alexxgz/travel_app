@@ -37,7 +37,7 @@ def about(request):
 def cities_show(request, city_id):
   posts = Post.objects.all()
   cities = City.objects.filter(id=city_id)
-  ordered_posts = Post.objects.order_by('-timestamp')
+  ordered_posts = Post.objects.filter(city=city_id).order_by('-timestamp')
   context = {
     'cities': cities, 
     'posts': posts,
@@ -69,6 +69,11 @@ def cities_index(request):
     'posts': posts,
     }
   return render(request, 'cities/index.html', context)
+
+
+def posts_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return redirect('profile')
 
 
 def signup(request):

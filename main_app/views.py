@@ -99,7 +99,10 @@ def edit_profile(request):
       user = request.user
       if request.POST['username']:
         user.username = request.POST['username']
-      user.city = request.POST['city']
+      if request.POST['city']:
+        city_id = request.POST['city']
+        city = City.objects.get(id=city_id)
+        user.city = city
       user.save()
       return redirect('profile')
     else:

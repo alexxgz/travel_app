@@ -21,12 +21,11 @@
 		{% endfor %}
 	</table>
   <input type="submit" class="btn-login" value="Login">
-  <input type="hidden" name="next" value="{{ next }}">
-</form>
 {% if error_message %}
-
 <p class="red-text" style="text-align: center;">{{error_message}} {{ message }}</p>
 {% endif %}
+  <input type="hidden" name="next" value="{{ next }}">
+</form>
 
 
 {% endblock  %}
